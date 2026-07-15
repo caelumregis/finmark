@@ -77,7 +77,7 @@ Once both applications are established, the team may remove `--if-present` from 
 `.nvmrc` contains:
 
 ```text
-22
+25.9.0
 ```
 
 The root package also declares:
@@ -85,14 +85,18 @@ The root package also declares:
 ```json
 {
   "engines": {
-    "node": ">=22 <23"
-  }
+    "node": "25.9.x",
+    "npm": "11.12.x"
+  },
+  "packageManager": "npm@11.12.1"
 }
 ```
 
-Node.js 22 is an LTS release suitable for a stable client-facing project. Pinning the major version reduces differences between local development, continuous integration, and deployment.
+The project currently standardizes on Node.js 25.9 and npm 11.12 to match the required development and evaluation environment.
 
-The local machine initially had Node.js 25 installed. Contributors should use a Node version manager to select Node.js 22 before installing dependencies.
+The exact npm version is recorded through `packageManager`, while the accepted patch ranges are documented through `engines`. Dependency versions will be made reproducible through the committed root `package-lock.json`.
+
+Node.js 25 is not a long-term-support release. Before a production deployment, FinMark should migrate to a supported even-numbered LTS release and validate the complete build and test suite.
 
 ## Editor conventions
 
@@ -150,7 +154,7 @@ Amending was appropriate because the newline correction belonged to the same log
 - Remove `--if-present` from mandatory validation scripts after every workspace defines them.
 - Add continuous integration after the frontend and backend validation commands exist.
 - Add package-manager and dependency-update policies.
-- Consider pinning an exact Node.js minor version in deployment tooling.
+- Migrate from Node.js 25 to a supported even-numbered LTS release before production deployment.
 
 ## Lessons learned
 
