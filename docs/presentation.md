@@ -52,14 +52,17 @@
 ## 8. Scalability and reliability improvements
 
 - Horizontal API/worker scaling
+- Multi-zone compute and managed HA for PostgreSQL and Redis, with RabbitMQ quorum members across three zones
 - Indexed and bounded queries
 - Measured caching and dashboard aggregation
-- Transactional orders, idempotency, outbox, retries, and dead-letter handling
+- Transactional orders, idempotency, a separate outbox relay, retries, and dead-letter handling
+- Autoscaling, bounded queues, backpressure, load shedding, and tested recovery objectives
 
 ## 9. Validation strategy
 
-- 200-user dashboard test and 3,000-daily-order capacity profile
-- Tenant-isolation, resilience, spike, soak, and queue-recovery tests
+- 200-user, 30-minute dashboard test at p95 server response under three seconds, plus p95 usable render under five seconds
+- Sustained 25 requests/second, 50 requests/second bursts, and 5 order creations/second
+- Tenant-isolation, database/broker failover, zone failure, restore, spike, soak, retry-storm, and backlog-recovery tests
 - Metrics, logs, traces, dashboards, and alerts as acceptance evidence
 
 ## 10. Delivery path and expected outcome

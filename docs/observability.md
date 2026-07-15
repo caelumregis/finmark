@@ -31,9 +31,11 @@ flowchart LR
 | Orders | Accepted, failed, duplicate, transaction duration, daily volume |
 | Database | Query latency, locks, slow queries, connections, pool wait, storage |
 | Redis | Hit ratio, latency, evictions, memory, rate-limit decisions |
-| RabbitMQ | Publish rate, queue depth, oldest message, retries, dead letters |
+| RabbitMQ | Node/quorum health, publisher confirms, publish rate, queue depth, oldest message, retries, dead letters |
 | Workers | Job duration, success/failure, retry count, concurrency, backlog |
 | Runtime | CPU, memory, event-loop delay, restarts, open handles |
+| Autoscaling | Desired/ready replicas, scaling decisions, capacity ceiling, pending containers, zone distribution |
+| Recovery | Failover duration, backup age, restore-test result, outbox lag, recovery-point gap |
 | Security | Authentication failures, rate-limit actions, authorization denials, admin changes |
 
 ## Dashboards
@@ -47,7 +49,7 @@ flowchart LR
 
 ## Alerts
 
-Alert on sustained user impact or imminent saturation, not isolated noise. Initial alerts should cover availability failure, elevated error rate, dashboard latency above objective, database connection saturation, growing queue age, dead-letter messages, repeated worker crashes, and anomalous authentication failures. Thresholds must be tuned from load-test and early production baselines.
+Alert on sustained user impact or imminent saturation, not isolated noise. Initial alerts should cover availability or zone failure, elevated error rate, dashboard p95 server response above three seconds, synthetic dashboard p95 usable render above five seconds, database connection saturation or replica/failover issues, stale backups, failed restore checks, growing queue age, lost RabbitMQ quorum, outbox lag, dead-letter messages, repeated worker crashes, autoscaling at its ceiling, and anomalous authentication failures. Thresholds must be tuned from load-test and early production baselines.
 
 ## Logging policy
 

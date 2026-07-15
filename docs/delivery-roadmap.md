@@ -36,7 +36,7 @@ The roadmap converts the modernization into portfolio-ready increments. Each sta
 - Scale API and worker instances behind the reverse proxy.
 - Run target, spike, soak, and failure-injection tests.
 
-**Exit evidence:** dashboard under the agreed three-second objective at 200 concurrent employees and capacity evidence for 3,000 daily orders.
+**Exit evidence:** dashboard p95 server response under three seconds and p95 usable render under five seconds for 200 concurrent employees using the documented 30-minute test profiles, plus sustained and burst capacity evidence for the order workload.
 
 ## Stage 5: Operational readiness
 

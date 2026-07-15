@@ -22,9 +22,9 @@
 
 | ID | Quality | Target |
 | --- | --- | --- |
-| NFR-001 | Dashboard performance | Under 3 seconds at the agreed percentile with 200 concurrent employee users |
-| NFR-002 | Order capacity | Support growth from 500 to 3,000 daily orders |
-| NFR-003 | Availability | No single API instance is required for continued request handling |
+| NFR-001 | Dashboard performance | p95 server response under 3 seconds for 200 concurrent users over 30 minutes, using the documented dataset and cache profiles |
+| NFR-002 | Order capacity | Support 3,000 daily orders and sustain 5 order creations/second for 15 minutes |
+| NFR-003 | Availability | API, workers, PostgreSQL, Redis, and RabbitMQ tolerate a single instance/node failure; application compute spans two availability zones |
 | NFR-004 | Data integrity | Order and financial state changes are transactional and recoverable |
 | NFR-005 | Tenant isolation | Every tenant-owned query and command enforces tenant context |
 | NFR-006 | API scalability | Stateless API instances scale horizontally behind a load balancer |
@@ -32,7 +32,11 @@
 | NFR-008 | Maintainability | Domain modules have explicit boundaries and automated contract/integration tests |
 | NFR-009 | Security | Secrets are managed externally; sensitive data is encrypted and excluded from logs |
 | NFR-010 | Accessibility | Core web workflows target WCAG 2.1 AA |
+| NFR-011 | Burst handling | Sustain 50 API requests/second for 5 minutes with bounded degradation and no unsafe errors |
+| NFR-012 | Queue recovery | Drain a 10,000-job backlog within 30 minutes after worker recovery |
+| NFR-013 | Recovery | PostgreSQL standby failover targets RTO 15 minutes/RPO 0; disaster restore targets RTO 4 hours/RPO 15 minutes |
+| NFR-014 | Dashboard user experience | p95 usable dashboard render under 5 seconds using the documented client and network profile |
 
-## Validation note
+## Performance profile
 
-The three-second dashboard target must be converted into a precise service-level objective by agreeing on percentile, dataset size, network conditions, and cache state before performance sign-off.
+The canonical dataset, network, cache, traffic, and recovery conditions are defined in [Scalability and reliability](scalability-and-reliability.md). These are initial engineering targets and must be recalibrated when production telemetry becomes available.
