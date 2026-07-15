@@ -7,6 +7,7 @@ Use ADRs for decisions that are difficult to reverse or affect multiple parts of
 | ADR | Decision | Status |
 | --- | --- | --- |
 | [0000](0000-template.md) | ADR template | Template |
+| [0001](0001-modular-monolith.md) | Use a modular monolith with event-driven workers | Proposed |
 
 ## Workflow
 

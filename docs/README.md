@@ -1,27 +1,30 @@
-# Finmark documentation
+# FinMark documentation
 
-## Foundation Release
+This documentation describes the modernization of FinMark Corporation’s legacy business consulting and analytics platform into a multi-tenant SaaS application.
+
+## Core documents
 
 | Document | Purpose |
 | --- | --- |
-| [Foundation overview](foundation/README.md) | Scope, goals, deliverables, and completion criteria |
-| [Product requirements](foundation/product-requirements.md) | Users, use cases, functional requirements, and acceptance criteria |
-| [User journeys](foundation/user-journeys.md) | Expected end-to-end user flows |
-| [Architecture](foundation/architecture.md) | System context, components, boundaries, and constraints |
-| [Data model](foundation/data-model.md) | Core entities, relationships, ownership, and retention |
-| [API contract](foundation/api-contract.md) | API conventions and endpoint inventory |
-| [Security and privacy](foundation/security-and-privacy.md) | Threats, controls, and sensitive-data handling |
-| [Development setup](foundation/development-setup.md) | Local environment and contributor workflow |
-| [Testing strategy](foundation/testing-strategy.md) | Test levels, cases, and release gates |
-| [Deployment and operations](foundation/deployment-and-operations.md) | Environments, release, rollback, and observability |
-| [Open questions](foundation/open-questions.md) | Unresolved decisions required to finish the Foundation Release |
-| [Release checklist](foundation/checklist.md) | Documentation and delivery sign-off checklist |
-| [Decision records](decisions/README.md) | Architecture and product decision log |
+| [Product overview](product-overview.md) | Business context, users, problems, goals, and scope |
+| [Requirements](requirements.md) | Functional and measurable quality requirements |
+| [Current architecture](current-architecture.md) | Inferred legacy architecture, failure points, and root causes |
+| [Proposed architecture](proposed-architecture.md) | Target components, request flows, and technology choices |
+| [Security](security.md) | Tenant isolation, authentication, authorization, and audit controls |
+| [Scalability and reliability](scalability-and-reliability.md) | Capacity approach, performance design, and resilience |
+| [Testing strategy](testing-strategy.md) | Validation levels, performance tests, and release gates |
+| [Observability](observability.md) | Metrics, logs, traces, dashboards, and alerts |
+| [Delivery roadmap](delivery-roadmap.md) | Incremental implementation plan and exit criteria |
+| [Presentation outline](presentation.md) | Concise narrative for presenting the architecture work |
+| [Decision records](decisions/README.md) | Cross-cutting architecture decisions |
 
-## Documentation conventions
+## Reference
 
-- **TBD** means a decision or fact still needs confirmation.
-- **Out of scope** means the item is deliberately excluded from the Foundation Release.
+- [Project context and alignment summary](reference/project-context-and-alignment.md) — preserved source brief used to align this documentation.
+
+## Conventions
+
+- Current-state claims without source code or production telemetry are explicitly labeled **inferred**.
 - Requirements use stable IDs such as `FR-001` and `NFR-001`.
-- Decisions that affect multiple areas should receive an ADR in `docs/decisions/`.
-- Update the relevant document in the same change that alters product behavior or architecture.
+- Architecture decisions are recorded as ADRs rather than silently embedded in implementation notes.
+- All diagrams use Mermaid in Markdown.
