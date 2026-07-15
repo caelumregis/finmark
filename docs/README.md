@@ -17,6 +17,7 @@ This documentation describes the modernization of FinMark Corporation’s legacy
 | [Delivery roadmap](delivery-roadmap.md) | Incremental implementation plan and exit criteria |
 | [Presentation outline](presentation.md) | Concise narrative for presenting the architecture work |
 | [Decision records](decisions/README.md) | Cross-cutting architecture decisions |
+| [Implementation guides](implementation/README.md) | Branch-by-branch code explanations, commands, verification, and lessons learned |
 
 ## Reference
 
