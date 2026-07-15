@@ -25,19 +25,23 @@ const environmentSchema = z.object({
     .default("http://localhost:5173"),
 });
 
-const result = environmentSchema.safeParse(process.env);
+export function parseEnvironment(input: NodeJS.ProcessEnv) {
+  const result = environmentSchema.safeParse(input);
 
-if (!result.success) {
-  const details = result.error.issues
-    .map((issue) => {
-      const field = issue.path.join(".") || "environment";
-      return `${field}: ${issue.message}`;
-    })
-    .join("; ");
+  if (!result.success) {
+    const details = result.error.issues
+      .map((issue) => {
+        const field = issue.path.join(".") || "environment";
+        return `${field}: ${issue.message}`;
+      })
+      .join("; ");
 
-  throw new Error(`Invalid environment configuration: ${details}`);
+    throw new Error(`Invalid environment configuration: ${details}`);
+  }
+
+  return result.data;
 }
 
-export const env = result.data;
+export const env = parseEnvironment(process.env);
 
 export type Environment = typeof env;
