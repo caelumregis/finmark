@@ -8,6 +8,7 @@ These guides document FinMark’s implementation branch by branch and commit by 
 | --- | --- | --- |
 | [Repository foundation](01-repository-foundation.md) | `chore/repository-foundation` | Establish the npm workspace and repository conventions |
 | [Backend foundation](02-backend-foundation.md) | `chore/backend-foundation` | Establish the TypeScript API, health endpoint, structured logging, configuration validation, and automated tests |
+| [Frontend foundation](03-frontend-foundation.md) | `chore/frontend-foundation` | Establish the React application, backend health integration, runtime response validation, user-visible states, and automated tests |
 
 ## Documentation standard
 
